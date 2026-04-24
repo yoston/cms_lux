@@ -67,8 +67,13 @@ COPY --from=builder --chown=strapi:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=strapi:nodejs /app/dist ./dist
 COPY --from=builder --chown=strapi:nodejs /app/package*.json ./
 COPY --from=builder --chown=strapi:nodejs /app/public ./public
-COPY --from=builder --chown=strapi:nodejs /app/config ./config
 COPY --from=builder --chown=strapi:nodejs /app/src ./src
+
+# Crear directorios necesarios
+RUN mkdir -p /app/data
+
+# Cambiar permisos
+RUN chown -R strapi:nodejs /app/data
 
 # Cambiar a usuario no-root
 USER strapi
