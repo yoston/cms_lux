@@ -66,6 +66,7 @@ COPY --from=builder --chown=strapi:nodejs /app/node_modules ./node_modules
 # Copiar la aplicación compilada del builder
 COPY --from=builder --chown=strapi:nodejs /app/dist ./dist
 COPY --from=builder --chown=strapi:nodejs /app/package*.json ./
+COPY --from=builder --chown=strapi:nodejs /app/tsconfig.json ./
 COPY --from=builder --chown=strapi:nodejs /app/config ./config
 COPY --from=builder --chown=strapi:nodejs /app/public ./public
 COPY --from=builder --chown=strapi:nodejs /app/src ./src
