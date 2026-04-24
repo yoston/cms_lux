@@ -1,23 +1,3 @@
-export default {
-    routes: [
-        {
-            method: 'GET',
-            path: '/servicio',
-            handler: 'servicio.find',
-            config: {
-                auth: false,
-                policies: [],
-                middlewares: [],
-            },
-        },
-        {
-            method: 'PUT',
-            path: '/servicio',
-            handler: 'servicio.update',
-            config: {
-                policies: [],
-                middlewares: [],
-            },
-        },
-    ],
-};
+import { factories } from '@strapi/strapi';
+
+export default factories.createCoreRouter('api::servicio.servicio');

@@ -1,23 +1,3 @@
-export default {
-    routes: [
-        {
-            method: 'GET',
-            path: '/inicio',
-            handler: 'inicio.find',
-            config: {
-                auth: false,
-                policies: [],
-                middlewares: [],
-            },
-        },
-        {
-            method: 'PUT',
-            path: '/inicio',
-            handler: 'inicio.update',
-            config: {
-                policies: [],
-                middlewares: [],
-            },
-        },
-    ],
-};
+import { factories } from '@strapi/strapi';
+
+export default factories.createCoreRouter('api::inicio.inicio');

@@ -1,23 +1,3 @@
-export default {
-    routes: [
-        {
-            method: 'GET',
-            path: '/paquete',
-            handler: 'paquete.find',
-            config: {
-                auth: false,
-                policies: [],
-                middlewares: [],
-            },
-        },
-        {
-            method: 'PUT',
-            path: '/paquete',
-            handler: 'paquete.update',
-            config: {
-                policies: [],
-                middlewares: [],
-            },
-        },
-    ],
-};
+import { factories } from '@strapi/strapi';
+
+export default factories.createCoreRouter('api::paquete.paquete');

@@ -1,22 +1,3 @@
-export default {
-    routes: [
-        {
-            method: 'GET',
-            path: '/contacto',
-            handler: 'contacto.find',
-            config: {
-                policies: [],
-                middlewares: [],
-            },
-        },
-        {
-            method: 'PUT',
-            path: '/contacto',
-            handler: 'contacto.update',
-            config: {
-                policies: [],
-                middlewares: [],
-            },
-        },
-    ],
-};
+import { factories } from '@strapi/strapi';
+
+export default factories.createCoreRouter('api::contacto.contacto');
