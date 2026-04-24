@@ -472,8 +472,6 @@ export interface ApiAyudaAyuda extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
-    increments: true;
-    timestamps: true;
   };
   attributes: {
     categorias: Schema.Attribute.JSON;
