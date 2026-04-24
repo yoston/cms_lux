@@ -8,16 +8,14 @@
     "description": "Centro de ayuda y preguntas frecuentes"
   },
   "options": {
-    "increments": true,
-    "timestamps": true,
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
     "heroImagen": {
-      "allowedTypes": ["images"],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "allowedTypes": ["images"]
     },
     "heroTitulo": {
       "type": "string",
@@ -40,16 +38,14 @@
       "maxLength": 255
     },
     "categorias": {
-      "type": "json",
-      "description": "Categorias principales de ayuda"
+      "type": "json"
     },
     "faqTitulo": {
       "type": "string",
       "maxLength": 255
     },
     "faq": {
-      "type": "json",
-      "description": "Preguntas frecuentes principales"
+      "type": "json"
     },
     "guiasTitulo": {
       "type": "string",
@@ -80,8 +76,7 @@
       "maxLength": 255
     },
     "linksUtiles": {
-      "type": "json",
-      "description": "Enlaces utiles para el usuario"
+      "type": "json"
     },
     "videoTutorialURL": {
       "type": "string",
