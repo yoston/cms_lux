@@ -7,11 +7,14 @@ services:
     restart: always
     environment:
       - NODE_ENV=production
+      - DATABASE_CLIENT=sqlite
+      - DATABASE_FILENAME=data/data.db
       - APP_KEYS=${APP_KEYS}
       - API_TOKEN_SALT=${API_TOKEN_SALT}
       - ADMIN_JWT_SECRET=${ADMIN_JWT_SECRET}
       - JWT_SECRET=${JWT_SECRET}
-      - DATABASE_FILENAME=${DATABASE_FILENAME:-data.db}
+      - TRANSFER_TOKEN_SALT=${TRANSFER_TOKEN_SALT}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
     ports:
       - "${STRAPI_PORT:-1337}:1337"
     volumes:
