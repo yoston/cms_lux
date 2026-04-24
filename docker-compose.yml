@@ -30,19 +30,26 @@ services:
 
   # Nginx como reverse proxy (opcional pero recomendado)
   nginx:
-    image: nginx:alpine
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
     container_name: cms-luxviajes-nginx
     restart: always
     ports:
       - "${NGINX_PORT:-80}:80"
       - "${NGINX_SSL_PORT:-443}:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./ssl:/etc/nginx/ssl:ro
+      - ./data/ssl:/etc/nginx/ssl:ro
     depends_on:
       - strapi
     networks:
       - strapi-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
 
 networks:
   strapi-network:
