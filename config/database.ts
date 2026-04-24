@@ -4,9 +4,10 @@ import type { Core } from '@strapi/strapi';
 const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database => {
   const client = env('DATABASE_CLIENT', 'sqlite');
 
-  const connections = {
+  const connections: Record<string, any> = {
     mysql: {
       connection: {
+        connectionString: env('DATABASE_URL'),
         host: env('DATABASE_HOST', 'localhost'),
         port: env.int('DATABASE_PORT', 3306),
         database: env('DATABASE_NAME', 'strapi'),
@@ -45,16 +46,22 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database 
     },
     sqlite: {
       connection: {
-        filename: path.join(__dirname, '..', '..', env('DATABASE_FILENAME', '.tmp/data.db')),
+        filename: path.join(
+          __dirname,
+          '..',
+          env('DATABASE_FILENAME', '.tmp/data.db')
+        ),
       },
       useNullAsDefault: true,
     },
   };
 
+  const connectionConfig = connections[client];
+
   return {
     connection: {
       client,
-      ...connections[client],
+      ...connectionConfig,
       acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
     },
   };
