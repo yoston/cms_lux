@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "visa_items",
+  "info": {
+    "singularName": "visa-item",
+    "pluralName": "visa-items",
+    "displayName": "Visa Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bandera": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "subtitulo": {
+      "type": "string"
+    },
+    "validez": {
+      "type": "string"
+    },
+    "procesamiento": {
+      "type": "string"
+    },
+    "requisitos": {
+      "type": "text"
+    },
+    "pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

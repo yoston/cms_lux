@@ -1,0 +1,64 @@
+{
+  "kind": "singleType",
+  "collectionName": "paqueteS",
+  "info": {
+    "singularName": "paquete",
+    "pluralName": "paquetes",
+    "displayName": "Paquetes",
+    "description": "Pagina de paquetes disponibles"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "heroTitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "heroSubtitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "destinosSonados": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::destino-sonado.destino-sonado"
+    },
+    "paquetesPremium": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::paquete-premium.paquete-premium"
+    },
+    "parquesTematicos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::parque-tematico.parque-tematico"
+    },
+    "llamadaTitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "llamadaSubtitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "boletinTitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "boletinDescripcion": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "kind": "singleType",
+  "collectionName": "visas",
+  "info": {
+    "singularName": "visa",
+    "pluralName": "visa-config",
+    "displayName": "Visas",
+    "description": "Pagina de informacion sobre visas y requisitos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroImagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "heroTitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "heroSubtitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "seccionGeneralTitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "seccionGeneralContenido": {
+      "type": "text"
+    },
+    "visa_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::visa-item.visa-item"
+    },
+    "llamadaTitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "llamadaSubtitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "subscripcionTitulo": {
+      "type": "string"
+    },
+    "subscripcionSubtitulo": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paquete_premiums",
+  "info": {
+    "singularName": "paquete-premium",
+    "pluralName": "paquete-premiums",
+    "displayName": "Paquete Premium",
+    "description": "Paquetes premium con opciones de categorias"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "etiqueta": {
+      "type": "enumeration",
+      "enum": [
+        "Seleccion del concierge",
+        "Popular",
+        "Todo Incluido"
+      ]
+    },
+    "dias": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "titulo": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "duracion": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "precio": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

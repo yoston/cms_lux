@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "destino_sonados",
+  "info": {
+    "singularName": "destino-sonado",
+    "pluralName": "destino-sonados",
+    "displayName": "Destino Sonado",
+    "description": "Destinos sonados con informacion completa"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "titulo": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "subtitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "disponibilidad": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "duracion": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "precio": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "descripcionDetallada": {
+      "type": "text"
+    },
+    "pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

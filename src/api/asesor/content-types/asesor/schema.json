@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "asesors",
+  "info": {
+    "singularName": "asesor",
+    "pluralName": "asesors",
+    "displayName": "Asesor"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "Sede": {
+      "type": "enumeration",
+      "enum": [
+        "samborondon",
+        "quito",
+        "cuenca",
+        "guayaquil"
+      ]
+    }
+  }
+}

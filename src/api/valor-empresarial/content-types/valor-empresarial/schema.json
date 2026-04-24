@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "valor_empresarials",
+  "info": {
+    "singularName": "valor-empresarial",
+    "pluralName": "valor-empresarials",
+    "displayName": "Valor Empresarial",
+    "description": "Valores y principios de la empresa"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "descripcion": {
+      "type": "text"
+    }
+  }
+}

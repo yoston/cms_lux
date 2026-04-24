@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "contactos",
+  "info": {
+    "singularName": "contacto",
+    "pluralName": "contacto-config",
+    "displayName": "Contacto",
+    "description": "Pagina de contacto con informacion y formulario"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroImagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "heroTitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "heroSubtitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "direcciones": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::direccion.direccion"
+    }
+  }
+}

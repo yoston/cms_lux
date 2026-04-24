@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "nosotroS",
+  "info": {
+    "singularName": "nosotros",
+    "pluralName": "nosotros-contenido",
+    "displayName": "Nosotros",
+    "description": "Pagina de informacion sobre nosotros"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroImagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "heroTitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "heroSubtitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "quienesSomosTitulo": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "quienesSomosDescripcion": {
+      "type": "text"
+    },
+    "numExpertos": {
+      "type": "string"
+    },
+    "ciudades": {
+      "type": "string"
+    },
+    "asesors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::asesor.asesor"
+    }
+  }
+}

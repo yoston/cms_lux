@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "redes_sociales",
+  "info": {
+    "singularName": "red-social",
+    "pluralName": "redes-sociales",
+    "displayName": "RedesSociales"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "llamada": {
+      "type": "string"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "tiktok": {
+      "type": "string"
+    },
+    "youtube": {
+      "type": "string"
+    }
+  }
+}
