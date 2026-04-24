@@ -1,7 +1,23 @@
-/**
- * ayuda router
- */
-
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreRouter('api::ayuda.ayuda');
+export default {
+    routes: [
+        {
+            method: 'GET',
+            path: '/ayuda',
+            handler: 'ayuda.find',
+            config: {
+                auth: false,
+                policies: [],
+                middlewares: [],
+            },
+        },
+        {
+            method: 'PUT',
+            path: '/ayuda',
+            handler: 'ayuda.update',
+            config: {
+                policies: [],
+                middlewares: [],
+            },
+        },
+    ],
+};
