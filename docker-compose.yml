@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  strapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cms-luxviajes
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - APP_KEYS=${APP_KEYS}
+      - API_TOKEN_SALT=${API_TOKEN_SALT}
+      - ADMIN_JWT_SECRET=${ADMIN_JWT_SECRET}
+      - JWT_SECRET=${JWT_SECRET}
+      - DATABASE_FILENAME=${DATABASE_FILENAME:-data.db}
+    ports:
+      - "${STRAPI_PORT:-1337}:1337"
+    volumes:
+      # Volumen para persistencia de base de datos SQLite
+      - ./data:/app/data
+      # Volumen para uploads/media
+      - ./public/uploads:/app/public/uploads
+    networks:
+      - strapi-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1337/admin"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+  # Nginx como reverse proxy (opcional pero recomendado)
+  nginx:
+    image: nginx:alpine
+    container_name: cms-luxviajes-nginx
+    restart: always
+    ports:
+      - "${NGINX_PORT:-80}:80"
+      - "${NGINX_SSL_PORT:-443}:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - strapi
+    networks:
+      - strapi-network
+
+networks:
+  strapi-network:
+    driver: bridge
+
+volumes:
+  strapi-data:
