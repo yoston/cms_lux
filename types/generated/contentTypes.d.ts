@@ -462,6 +462,30 @@ export interface ApiAsesorAsesor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAyudaAyuda extends Struct.SingleTypeSchema {
+  collectionName: 'ayudas';
+  info: {
+    displayName: 'Ayuda';
+    pluralName: 'ayudas';
+    singularName: 'ayuda';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::ayuda.ayuda'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactoContacto extends Struct.SingleTypeSchema {
   collectionName: 'contactos';
   info: {
@@ -1717,6 +1741,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::asesor.asesor': ApiAsesorAsesor;
+      'api::ayuda.ayuda': ApiAyudaAyuda;
       'api::contacto.contacto': ApiContactoContacto;
       'api::destino-sonado.destino-sonado': ApiDestinoSonadoDestinoSonado;
       'api::diapositiva.diapositiva': ApiDiapositivaDiapositiva;
