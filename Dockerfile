@@ -65,10 +65,10 @@ COPY --from=builder --chown=strapi:nodejs /app/node_modules ./node_modules
 
 # Copiar la aplicación compilada del builder
 COPY --from=builder --chown=strapi:nodejs /app/dist ./dist
-COPY --from=builder --chown=strapi:nodejs /app/build ./build
 COPY --from=builder --chown=strapi:nodejs /app/package*.json ./
-COPY --from=builder --chown=strapi:nodejs /app/.env* ./
 COPY --from=builder --chown=strapi:nodejs /app/public ./public
+COPY --from=builder --chown=strapi:nodejs /app/config ./config
+COPY --from=builder --chown=strapi:nodejs /app/src ./src
 
 # Cambiar a usuario no-root
 USER strapi
@@ -77,8 +77,8 @@ USER strapi
 EXPOSE 1337
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD node -e "require('http').get('http://localhost:1337/admin', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:1337/admin || exit 1
 
 # Usar tini para manejar signals correctamente
 ENTRYPOINT ["/sbin/tini", "--"]
