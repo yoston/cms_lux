@@ -23,15 +23,17 @@ WORKDIR /app
 COPY package*.json ./
 COPY tsconfig.json ./
 
-# Instalar dependencias
-RUN npm ci --only=production && \
-    npm ci --only=development
+# Instalar todas las dependencias (incluyendo dev para el build)
+RUN npm ci
 
 # Copiar código fuente
 COPY . .
 
 # Build de la aplicación
 RUN npm run build
+
+# Remover dev dependencies para la imagen final
+RUN npm prune --omit=dev
 
 # Etapa de producción
 FROM node:20-alpine
