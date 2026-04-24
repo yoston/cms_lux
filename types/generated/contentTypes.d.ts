@@ -479,15 +479,13 @@ export interface ApiAyudaAyuda extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::ayuda.ayuda'> &
       Schema.Attribute.Private;
-    mediaExample: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
+    pdfPoliticasAgencia: Schema.Attribute.Media<'files'>;
+    pdfPoliticasViaje: Schema.Attribute.Media<'files'>;
+    preguntas_frecuentas: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq.faq'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    relationExample: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::diapositiva.diapositiva'
-    >;
-    textExample: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -932,8 +930,6 @@ export interface ApiParqueTematicoParqueTematico
   };
   options: {
     draftAndPublish: true;
-    increments: true;
-    timestamps: true;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -976,6 +972,7 @@ export interface ApiRedSocialRedSocial extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    email_trabajos: Schema.Attribute.Email;
     facebook: Schema.Attribute.String;
     instagram: Schema.Attribute.String;
     llamada: Schema.Attribute.String;

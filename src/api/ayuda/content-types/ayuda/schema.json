@@ -11,23 +11,24 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "textExample": {
-      "type": "string"
-    },
-    "mediaExample": {
+    "pdfPoliticasAgencia": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "files"
       ]
     },
-    "relationExample": {
+    "pdfPoliticasViaje": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "preguntas_frecuentas": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::diapositiva.diapositiva"
+      "target": "api::faq.faq"
     }
   }
 }

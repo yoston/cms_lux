@@ -28,6 +28,9 @@
     },
     "youtube": {
       "type": "string"
+    },
+    "email_trabajos": {
+      "type": "email"
     }
   }
 }
