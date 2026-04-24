@@ -72,10 +72,10 @@ COPY --from=builder --chown=strapi:nodejs /app/public ./public
 COPY --from=builder --chown=strapi:nodejs /app/src ./src
 
 # Crear directorios necesarios
-RUN mkdir -p /app/data
+RUN mkdir -p /app/data /app/database/migrations /app/public/uploads
 
-# Cambiar permisos
-RUN chown -R strapi:nodejs /app/data
+# Cambiar permisos para que strapi pueda escribir
+RUN chown -R strapi:nodejs /app/data /app/database /app/public
 
 # Cambiar a usuario no-root
 USER strapi
