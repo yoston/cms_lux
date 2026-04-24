@@ -472,26 +472,76 @@ export interface ApiAyudaAyuda extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+    increments: true;
+    timestamps: true;
   };
   attributes: {
+    categorias: Schema.Attribute.JSON;
+    categoriasTitulo: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    emailBuscaEmpleo: Schema.Attribute.Email;
-    faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    faq: Schema.Attribute.JSON;
+    faqTitulo: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    guiasDescripcion: Schema.Attribute.Text;
+    guiasTitulo: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    heroImagen: Schema.Attribute.Media<'images'>;
+    heroSubtitulo: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    heroTitulo: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    linksUtiles: Schema.Attribute.JSON;
+    linksUtilesTitulo: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::ayuda.ayuda'> &
       Schema.Attribute.Private;
-    politicasAgencia: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    politicasViaje: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
     publishedAt: Schema.Attribute.DateTime;
+    searchPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    searchTitulo: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    soporteCorreo: Schema.Attribute.Email;
+    soporteDescripcion: Schema.Attribute.Text;
+    soporteTelefono: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    soporteTitulo: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    soportoHorario: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    videoTutorialTitulo: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    videoTutorialURL: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
   };
 }
 
