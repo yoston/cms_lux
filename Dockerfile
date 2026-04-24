@@ -1,5 +1,5 @@
 # Multi-stage build para Strapi CMS
-FROM node:20-alpine AS builder
+FROM node:24-alpine AS builder
 
 # Establecer variables de entorno
 ENV NODE_ENV=development
@@ -40,7 +40,7 @@ ENV NPM_CONFIG_PRODUCTION=true
 RUN npm prune --omit=dev
 
 # Etapa de producción
-FROM node:20-alpine
+FROM node:24-alpine
 
 ENV NODE_ENV=production
 

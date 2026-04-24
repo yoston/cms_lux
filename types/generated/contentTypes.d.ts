@@ -462,42 +462,6 @@ export interface ApiAsesorAsesor extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAyudaAyuda extends Struct.SingleTypeSchema {
-  collectionName: 'ayudas';
-  info: {
-    description: 'Centro de ayuda y preguntas frecuentes';
-    displayName: 'Ayuda';
-    pluralName: 'ayuda-config';
-    singularName: 'ayuda';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    email_trabajo: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::ayuda.ayuda'> &
-      Schema.Attribute.Private;
-    pdfPoliticasAgencia: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    pdfPoliticasViaje: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    preguntas_frecuentas: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::faq.faq'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiContactoContacto extends Struct.SingleTypeSchema {
   collectionName: 'contactos';
   info: {
@@ -1753,7 +1717,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::asesor.asesor': ApiAsesorAsesor;
-      'api::ayuda.ayuda': ApiAyudaAyuda;
       'api::contacto.contacto': ApiContactoContacto;
       'api::destino-sonado.destino-sonado': ApiDestinoSonadoDestinoSonado;
       'api::diapositiva.diapositiva': ApiDiapositivaDiapositiva;

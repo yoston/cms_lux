@@ -14,7 +14,6 @@ export default {
     },
     pluginOptions: {},
     attributes: {
-        // Hero
         heroImagen: {
             allowedTypes: ['images'],
             type: 'media',
@@ -28,8 +27,6 @@ export default {
             type: 'string',
             maxLength: 255,
         },
-
-        // Seccion de Busqueda
         searchTitulo: {
             type: 'string',
             maxLength: 255,
@@ -38,28 +35,20 @@ export default {
             type: 'string',
             maxLength: 255,
         },
-
-        // Categorias de Ayuda
         categoriasTitulo: {
             type: 'string',
             maxLength: 255,
         },
         categorias: {
             type: 'json',
-            description: 'Categorias principales de ayuda',
         },
-
-        // FAQ Principales
         faqTitulo: {
             type: 'string',
             maxLength: 255,
         },
         faq: {
             type: 'json',
-            description: 'Preguntas frecuentes principales',
         },
-
-        // Guias y Tutoriales
         guiasTitulo: {
             type: 'string',
             maxLength: 255,
@@ -67,8 +56,6 @@ export default {
         guiasDescripcion: {
             type: 'text',
         },
-
-        // Contacto de Soporte
         soporteTitulo: {
             type: 'string',
             maxLength: 255,
@@ -86,18 +73,13 @@ export default {
         soportoHorario: {
             type: 'text',
         },
-
-        // Links Utiles
         linksUtilesTitulo: {
             type: 'string',
             maxLength: 255,
         },
         linksUtiles: {
             type: 'json',
-            description: 'Enlaces utiles para el usuario',
         },
-
-        // Video Tutorial
         videoTutorialURL: {
             type: 'string',
             maxLength: 500,
