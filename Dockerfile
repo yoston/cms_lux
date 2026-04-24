@@ -2,7 +2,7 @@
 FROM node:20-alpine AS builder
 
 # Establecer variables de entorno
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 ENV NPM_CONFIG_PRODUCTION=false
 
 # Instalar dependencias del sistema necesarias para better-sqlite3 y otras librerías nativas
@@ -23,14 +23,18 @@ WORKDIR /app
 COPY package*.json ./
 COPY tsconfig.json ./
 
-# Instalar todas las dependencias (incluyendo dev para el build)
-RUN npm ci
+# Instalar dependencias con npm install (más flexible que npm ci)
+RUN npm install --legacy-peer-deps
 
 # Copiar código fuente
 COPY . .
 
 # Build de la aplicación
 RUN npm run build
+
+# Cambiar a producción
+ENV NODE_ENV=production
+ENV NPM_CONFIG_PRODUCTION=true
 
 # Remover dev dependencies para la imagen final
 RUN npm prune --omit=dev
@@ -39,7 +43,6 @@ RUN npm prune --omit=dev
 FROM node:20-alpine
 
 ENV NODE_ENV=production
-ENV NPM_CONFIG_PRODUCTION=true
 
 # Instalar solo las librerías de runtime necesarias
 RUN apk add --no-cache \
@@ -48,7 +51,8 @@ RUN apk add --no-cache \
     pango \
     giflib \
     pixman \
-    tini
+    tini \
+    curl
 
 # Crear usuario no-root para mayor seguridad
 RUN addgroup -g 1001 -S nodejs && \
