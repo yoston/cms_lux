@@ -63,7 +63,7 @@ const config = ({
         filename: path.join(
           __dirname,
           "..",
-          env("DATABASE_FILENAME", "/data/data.db"),
+          env("DATABASE_FILENAME", "data/data.db"),
         ),
 
         // filename: path.resolve(
