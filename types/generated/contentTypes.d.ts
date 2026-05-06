@@ -538,7 +538,7 @@ export interface ApiDestinoSonadoDestinoSonado
   collectionName: 'destino_sonados';
   info: {
     description: 'Destinos sonados con informacion completa';
-    displayName: 'Destino Sonado';
+    displayName: 'Top Destinos Mes';
     pluralName: 'destino-sonados';
     singularName: 'destino-sonado';
   };
@@ -602,7 +602,8 @@ export interface ApiDiapositivaDiapositiva extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    imagen: Schema.Attribute.Media<'images' | 'videos'> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -714,10 +715,6 @@ export interface ApiInicioInicio extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    destino_sonados: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::destino-sonado.destino-sonado'
-    >;
     destinos: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 50;
@@ -750,6 +747,10 @@ export interface ApiInicioInicio extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::tarjeta-servicio.tarjeta-servicio'
     >;
+    topDestinosMes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::destino-sonado.destino-sonado'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -772,7 +773,7 @@ export interface ApiNosotrosNosotros extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    asesors: Schema.Attribute.Relation<'oneToMany', 'api::asesor.asesor'>;
+    asesores: Schema.Attribute.Relation<'oneToMany', 'api::asesor.asesor'>;
     ciudades: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -877,10 +878,6 @@ export interface ApiPaquetePaquete extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    destinosSonados: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::destino-sonado.destino-sonado'
-    >;
     heroSubtitulo: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 255;
@@ -904,7 +901,7 @@ export interface ApiPaquetePaquete extends Struct.SingleTypeSchema {
       'api::paquete.paquete'
     > &
       Schema.Attribute.Private;
-    paquetesPremium: Schema.Attribute.Relation<
+    paquete_premiums: Schema.Attribute.Relation<
       'oneToMany',
       'api::paquete-premium.paquete-premium'
     >;
@@ -913,6 +910,10 @@ export interface ApiPaquetePaquete extends Struct.SingleTypeSchema {
       'api::parque-tematico.parque-tematico'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    topDestinosMes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::destino-sonado.destino-sonado'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

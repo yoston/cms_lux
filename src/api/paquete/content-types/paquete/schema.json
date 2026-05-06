@@ -30,12 +30,12 @@
       "type": "string",
       "maxLength": 255
     },
-    "destinosSonados": {
+    "topDestinosMes": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::destino-sonado.destino-sonado"
     },
-    "paquetesPremium": {
+    "paquete_premiums": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::paquete-premium.paquete-premium"

@@ -40,7 +40,7 @@
     "ciudades": {
       "type": "string"
     },
-    "asesors": {
+    "asesores": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::asesor.asesor"
