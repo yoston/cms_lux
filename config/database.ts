@@ -60,11 +60,15 @@ const config = ({
     },
     sqlite: {
       connection: {
-        filename: path.join(
-          __dirname,
-          "..",
+        filename: path.resolve(
+          process.cwd(),
           env("DATABASE_FILENAME", "data/data.db"),
         ),
+        // filename: path.join(
+        //   __dirname,
+        //   "..",
+        //   env("DATABASE_FILENAME", "data/data.db"),
+        // ),
 
         // filename: path.resolve(
         //   process.cwd(),
