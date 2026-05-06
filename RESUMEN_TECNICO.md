@@ -285,7 +285,7 @@ HOST=0.0.0.0
 PORT=1337
 APP_KEYS=generados_al_crear_app
 JWT_SECRET=genera_uno_seguro
-DATABASE_FILENAME=.tmp/data.db
+DATABASE_FILENAME=/app/data/data.db
 ```
 
 ### CORS (si es necesario)

@@ -69,7 +69,7 @@ TRANSFER_TOKEN_SALT=valor_aleatorio_seguro
 JWT_SECRET=valor_aleatorio_seguro
 ENCRYPTION_KEY=valor_aleatorio_seguro
 
-DATABASE_FILENAME=data.db
+DATABASE_FILENAME=/app/data/
 STRAPI_PORT=1337
 NGINX_PORT=80
 NGINX_SSL_PORT=443

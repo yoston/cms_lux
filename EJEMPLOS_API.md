@@ -418,7 +418,7 @@ En el archivo `.env`:
 HOST=0.0.0.0
 PORT=1337
 APP_KEYS=your_keys_here
-DATABASE_FILENAME=.tmp/data.db
+DATABASE_FILENAME=/app/data/data.db
 JWT_SECRET=your_jwt_secret
 ```
 
