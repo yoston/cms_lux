@@ -492,6 +492,71 @@ export interface ApiAyudaAyuda extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBlogBlog extends Struct.SingleTypeSchema {
+  collectionName: 'blogs';
+  info: {
+    displayName: 'Blog';
+    pluralName: 'blogs';
+    singularName: 'blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroImagen: Schema.Attribute.Media<'images' | 'videos', true>;
+    heroSubtitulo: Schema.Attribute.String;
+    heroTitulo: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBlogsPostBlogsPost extends Struct.CollectionTypeSchema {
+  collectionName: 'blogs_posts';
+  info: {
+    displayName: 'Blogs Post';
+    pluralName: 'blogs-posts';
+    singularName: 'blogs-post';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    autor: Schema.Attribute.String;
+    categoria: Schema.Attribute.String;
+    contenido: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    destacado: Schema.Attribute.Boolean;
+    etiquetas: Schema.Attribute.JSON;
+    fecha: Schema.Attribute.Date;
+    imagen: Schema.Attribute.Media<'images' | 'videos'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blogs-post.blogs-post'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    resumen: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'titulo'> & Schema.Attribute.Required;
+    tiempoLectura: Schema.Attribute.String;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactoContacto extends Struct.SingleTypeSchema {
   collectionName: 'contactos';
   info: {
@@ -1748,6 +1813,8 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::asesor.asesor': ApiAsesorAsesor;
       'api::ayuda.ayuda': ApiAyudaAyuda;
+      'api::blog.blog': ApiBlogBlog;
+      'api::blogs-post.blogs-post': ApiBlogsPostBlogsPost;
       'api::contacto.contacto': ApiContactoContacto;
       'api::destino-sonado.destino-sonado': ApiDestinoSonadoDestinoSonado;
       'api::diapositiva.diapositiva': ApiDiapositivaDiapositiva;

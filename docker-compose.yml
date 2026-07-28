@@ -6,7 +6,7 @@ services:
     container_name: cms-luxviajes
     restart: always
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
       - DATABASE_CLIENT=sqlite
       - DATABASE_FILENAME=/app/data/data.db
       - APP_KEYS=${APP_KEYS}
