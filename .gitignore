@@ -129,3 +129,11 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+
+############################
+# Bases de datos de prueba e imagenes
+############################
+.db
+*.jpg
+public/uploads/*
+data/*
