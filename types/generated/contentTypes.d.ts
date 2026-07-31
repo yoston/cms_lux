@@ -479,8 +479,9 @@ export interface ApiAyudaAyuda extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::ayuda.ayuda'> &
       Schema.Attribute.Private;
-    pdfPoliticasAgencia: Schema.Attribute.Media<'files'>;
+    pdfPoliticasPrivacidad: Schema.Attribute.Media<'files'>;
     pdfPoliticasViaje: Schema.Attribute.Media<'files'>;
+    pdfPoliticasVisas: Schema.Attribute.Media<'files'>;
     preguntas_frecuentas: Schema.Attribute.Relation<
       'oneToMany',
       'api::faq.faq'
@@ -1235,6 +1236,7 @@ export interface ApiVisaItemVisaItem extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     pdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    precio: Schema.Attribute.Decimal;
     procesamiento: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     requisitos: Schema.Attribute.Text;

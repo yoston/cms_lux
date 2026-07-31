@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "pdfPoliticasAgencia": {
+    "pdfPoliticasVisas": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -29,6 +29,13 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::faq.faq"
+    },
+    "pdfPoliticasPrivacidad": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
     }
   }
 }
