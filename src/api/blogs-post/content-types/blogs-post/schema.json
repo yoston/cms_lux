@@ -30,8 +30,7 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": [
-        "images",
-        "videos"
+        "images"
       ]
     },
     "autor": {
@@ -47,7 +46,7 @@
       "type": "string"
     },
     "etiquetas": {
-      "type": "json"
+      "type": "string"
     },
     "destacado": {
       "type": "boolean"

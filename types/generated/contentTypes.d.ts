@@ -542,9 +542,9 @@ export interface ApiBlogsPostBlogsPost extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     destacado: Schema.Attribute.Boolean;
-    etiquetas: Schema.Attribute.JSON;
+    etiquetas: Schema.Attribute.String;
     fecha: Schema.Attribute.Date;
-    imagen: Schema.Attribute.Media<'images' | 'videos'>;
+    imagen: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
