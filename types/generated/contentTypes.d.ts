@@ -480,6 +480,7 @@ export interface ApiAyudaAyuda extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::ayuda.ayuda'> &
       Schema.Attribute.Private;
     pdfPoliticasPrivacidad: Schema.Attribute.Media<'files'>;
+    pdfPoliticasUsoWeb: Schema.Attribute.Media<'files'>;
     pdfPoliticasViaje: Schema.Attribute.Media<'files'>;
     pdfPoliticasVisas: Schema.Attribute.Media<'files'>;
     preguntas_frecuentas: Schema.Attribute.Relation<

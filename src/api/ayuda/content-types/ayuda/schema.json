@@ -36,6 +36,13 @@
       "allowedTypes": [
         "files"
       ]
+    },
+    "pdfPoliticasUsoWeb": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
     }
   }
 }
