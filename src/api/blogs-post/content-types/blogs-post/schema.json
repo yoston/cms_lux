@@ -24,7 +24,7 @@
       "type": "string"
     },
     "contenido": {
-      "type": "blocks"
+      "type": "text"
     },
     "imagen": {
       "type": "media",

@@ -19,11 +19,15 @@
     },
     "heroImagen": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
-        "images",
-        "videos"
+        "images"
       ]
+    },
+    "blog_posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blogs-post.blogs-post"
     }
   }
 }

@@ -504,10 +504,14 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blog_posts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blogs-post.blogs-post'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heroImagen: Schema.Attribute.Media<'images' | 'videos', true>;
+    heroImagen: Schema.Attribute.Media<'images'>;
     heroSubtitulo: Schema.Attribute.String;
     heroTitulo: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -533,7 +537,7 @@ export interface ApiBlogsPostBlogsPost extends Struct.CollectionTypeSchema {
   attributes: {
     autor: Schema.Attribute.String;
     categoria: Schema.Attribute.String;
-    contenido: Schema.Attribute.Blocks;
+    contenido: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
