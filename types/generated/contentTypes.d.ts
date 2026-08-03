@@ -537,7 +537,9 @@ export interface ApiBlogsPostBlogsPost extends Struct.CollectionTypeSchema {
   attributes: {
     autor: Schema.Attribute.String;
     categoria: Schema.Attribute.String;
-    contenido: Schema.Attribute.Text;
+    contenido: Schema.Attribute.DynamicZone<
+      ['content.image-block', 'content.text-block']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -24,7 +24,11 @@
       "type": "string"
     },
     "contenido": {
-      "type": "text"
+      "type": "dynamiczone",
+      "components": [
+        "content.image-block",
+        "content.text-block"
+      ]
     },
     "imagen": {
       "type": "media",
