@@ -133,7 +133,5 @@ build
 ############################
 # Bases de datos de prueba e imagenes
 ############################
-.db
 *.jpg
 public/uploads/*
-data/*

@@ -6,7 +6,7 @@ services:
     container_name: cms-luxviajes-prod
     restart: always
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
       - APP_KEYS=${APP_KEYS}
       - API_TOKEN_SALT=${API_TOKEN_SALT}
       - ADMIN_JWT_SECRET=${ADMIN_JWT_SECRET}
